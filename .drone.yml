@@ -1,10 +1,21 @@
-pipeline:
-  build:
+kind: pipeline
+type: docker
+name: Mi Canalización
+
+runners:
+  - name: Runner ARM
+    platform:
+      os: linux
+      arch: arm
+
+steps:
+  - name: Build
     image: maven:3-jdk-10
     commands:
       - echo "Compiling the code..."
       - mvn clean package
-  test:
+
+  - name: Test
     image: maven:3-jdk-10
     commands:
       - echo "Running tests"
