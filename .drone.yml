@@ -1,10 +1,11 @@
 kind: pipeline
 type: docker
 name: default
-os: linux
-arch: arm64
 
-#"kind":"pipeline","type":"docker","os":"linux","arch":"arm64","variant":"","kernel":""}
+platform:
+  os: linux
+  arch: arm64
+
 
 steps:
 - name: backend
