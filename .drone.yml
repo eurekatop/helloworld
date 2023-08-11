@@ -1,26 +1,15 @@
 kind: pipeline
 type: docker
-name: Mi Canalización
-
-platform:
-  os: linux
-  arch: arm64
-
-#runners:
-#  - name: docker-arm-runner
-#    platform:
-#      os: linux
-#      arch: arm64
+name: default
 
 steps:
-  - name: Build
-    image: maven:3-jdk-10
-    commands:
-      - echo "Compiling the code..."
-      - mvn clean package
-
-  - name: Test
-    image: maven:3-jdk-10
-    commands:
-      - echo "Running tests"
-      - java -cp target/helloworld-1.1.jar com.coveros.demo.helloworld.HelloWorld
+- name: backend
+  image: maven:3-jdk-10
+  commands:
+   - echo "Compiling the code..."
+   - mvn clean package
+- name: test:
+  image: maven:3-jdk-10
+  commands:
+   - echo "Running tests"
+   - java -cp target/helloworld-1.1.jar com.coveros.demo.helloworld.HelloWorld
