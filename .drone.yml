@@ -3,7 +3,7 @@ type: docker
 name: Mi Canalización
 
 runners:
-  - name: Runner ARM
+  - name: docker-arm-runner
     platform:
       os: linux
       arch: arm
