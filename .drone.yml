@@ -6,16 +6,22 @@ runners:
   - name: docker-arm-runner
     platform:
       os: linux
-      arch: arm
+      arch: arch=arm64
 
 steps:
   - name: Build
+    platform:
+      os: linux
+      arch: arch=arm64
     image: maven:3-jdk-10
     commands:
       - echo "Compiling the code..."
       - mvn clean package
 
   - name: Test
+    platform:
+      os: linux
+      arch: arch=arm64
     image: maven:3-jdk-10
     commands:
       - echo "Running tests"
