@@ -6,10 +6,11 @@ steps:
 - name: backend
   image: maven:3-jdk-10
   commands:
-   - echo "Compiling the code..."
-   - mvn clean package
-- name: test:
+    - echo "Compiling the code..."
+    - mvn clean package
+
+- name: ea_test
   image: maven:3-jdk-10
   commands:
-   - echo "Running tests"
-   - java -cp target/helloworld-1.1.jar com.coveros.demo.helloworld.HelloWorld
+    - echo "Running tests"
+    - java -cp target/helloworld-1.1.jar com.coveros.demo.helloworld.HelloWorld
